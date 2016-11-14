@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Obamachart</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">ObamaChart</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#about">Raw Chart</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Stock Prices</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Major Events and Timeline</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#methodology">Methodology</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact"></a>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        <div class="header-content">
+            <div class="header-content-inner">
+                <h1 id="homeHeading">A look back</h1>
+                <hr>
+                <p>President Obama's time in office has been eventful.  Here's a data-driven trip through memory lane analyzing his moods and the things that happened, using computer vision and statistical summary.</p>
+            </div>
+        </div>
+    </header>
+    <section class="bg-primary" id="about">
+        <div style="text-align: center;">
+            <div id="moods_div"></div>
+            <br>
+            <p class = "description"> Using Microsoft's Cognitive Services API, we quantified Obama's mood using pictures found with <br>Bing's search API.  
+            We then aggregated the data, which took around an hour to process, into this graph.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div id="sap_div"></div>
+        <p class = "description"> We distill the different emotions that Obama feels in his photographs into a mood index. Basically, positive moods such as happiness contribute positive weighting and negative moods such as sadness and anger contribute negative weighting. We then plot this against a normalized version of S&P500. It turns out that there is little correlation between Obama's monthly mood and the S&P500 index. ¯\_(ツ)_/¯</p>
+    </section>
+
+    <section class="no-padding" id="portfolio">
+        <div id="approve_div"></div>
+        <p class = "description">Even though the mood index comparison to S&P500 was a little bit disappointing, we next move towards looking at approval rating. Does Obama have a higher approval rating when he smiles more?<br><br><br><br></p>
+    </section>
+    <div id="timeline_div"></div>
+    <div class="methodology" id = "methodology">
+        <h2 class = "method" style="text-align:center"> Methodology </h2>
+        <br>
+        <p class = "method">
+            We were motivated by the question: "What can we learn from a person's emotions over time?" Thus, the idea of the ObamaChart was born. <br><br> We had to do extensive preprocessing in order to get the data. We wrote Python scripts to aggregate around 1000 image URLs of Obama's face from his inauguration in Jan 2009 to November 2016 with Bing Search API. Next, we fed these image URLs into Microsoft Cognitive Services Emotions API, getting a 8D vector of quantified emotions (anger, contempt, disgust, fear, happiness, neutral, sadness, and surprise). These emotion vectors were averaged into an average representation of Obama's emotion for each month. A mood index was developed as a sum of positive and negative emotions. <br><br> To present our data, we stored our data on online Google Spreadsheets and displayed it with Google Charts. We deployed this website with Microsoft Azure.
+            <br><br>
+            Members:
+            <br>
+            Hector Solis is a sophomore in the COS department. He is the treasurer of ACM at Princeton.
+            <br>
+            Gene Li is a sophomore in the ELE department.  He was once trapped in an elevator for an hour.
+            <br>
+            Charlie Hou is a sophomore in the ORFE department.  He enjoys writing amateur fiction.
+            <br>
+            Gerry Wan is a sophomore in the ELE department.  He is an avid citrus snob and understands the wonders of oranges better than anyone.
+        </p>
+    </div>
+    <div class="end">
+        <p style="font-size:50px" class = "pad">Thanks Obama</p>
+    </div>
+
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+
+      // Load the Visualization API and the corechart package.
+      google.charts.load('current', {'packages':['line', 'timeline']});
+
+      // Set a callback to run when the Google Visualization API is loaded.
+      google.charts.setOnLoadCallback(drawMoods);
+      google.charts.setOnLoadCallback(drawSAP);
+      google.charts.setOnLoadCallback(drawApprove);
+      google.charts.setOnLoadCallback(drawTimeline);
+
+      // Callback that creates and populates a data table,
+      // instantiates the line graph, passes in the data and
+      // draws it.
+      function drawMoods() {
+        var URL = 'https://docs.google.com/spreadsheets/d/1MA39x5TnQMRk-c6TZqDLhOaj-2MwkNmwp_iSzJ6nh1U/edit?ts=5827bb77#gid=195919195';
+        var query = new google.visualization.Query(URL);
+        query.send(handleQueryResponse)
+      }
+
+      function handleQueryResponse(response) {
+        var data = response.getDataTable();
+
+        // Set chart options
+        var options = {'width':1200,
+                       'height':600,
+                       'tooltip': {isHtml: true}
+                       };
+        var chart = new google.charts.Line(document.getElementById('moods_div'));
+
+        chart.draw(data, options);
+      }
+
+      // Callback that creates and populates a normalized S&P
+      // line graph, passes in the data and
+      // draws it.
+      function drawSAP() {
+        var URL = 'https://docs.google.com/spreadsheets/d/1e1xGmVWFh64jmoDqddPhMpUnYWoEFLUEiMjpTmgoGnU/edit#gid=0';
+        var query = new google.visualization.Query(URL);
+        query.send(handleSAPResponse)
+      }
+
+      function handleSAPResponse(response) {
+        var data = response.getDataTable();
+
+        // Set chart options
+        var options = {'width':1200,
+                       'height':600,
+                       'tooltip': {isHtml: true}
+                       };
+        var chart = new google.charts.Line(document.getElementById('sap_div'));
+
+        chart.draw(data, options);
+      }
+
+      // Callback that creates and populates a normalized approval
+      // line graph, passes in the data and
+      // draws it.
+      function drawApprove() {
+        var URL = 'https://docs.google.com/spreadsheets/d/1Ol581BfCdMNZodXwaHCP9xA1hFq8oFqJIPTCYBqhEIc/edit#gid=0';
+        var query = new google.visualization.Query(URL);
+        query.send(handleApproveResponse)
+      }
+
+      function handleApproveResponse(response) {
+        var data = response.getDataTable();
+
+        // Set chart options
+        var options = {'width':1200,
+                       'height':600,
+                       'tooltip': {isHtml: true}
+                       };
+        var chart = new google.charts.Line(document.getElementById('approve_div'));
+
+        chart.draw(data, options);
+      }
+
+      // Callback that creates and populates a data table,
+      // instantiates the line graph, passes in the data and
+      // draws it.
+      function drawTimeline() {
+        var URL = 'https://docs.google.com/spreadsheets/d/1VGasT9jW-N8cW40sMpJOq83-D4KwRzGR0zxWIexbiXU/edit#gid=0';
+        var query = new google.visualization.Query(URL);
+        query.send(handleTimelineResponse)
+      }
+
+      function handleTimelineResponse(response) {
+        var data = response.getDataTable();
+
+        // Set chart options
+        var options = {'width':600,
+                       'height':600,
+                       'tooltip': {isHtml: true}
+                       };
+        var chart = new google.visualization.Timeline(document.getElementById('timeline_div'));
+
+        chart.draw(data);
+      }
+
+
+    </script>
+    
+
+</body>
+
+</html>
